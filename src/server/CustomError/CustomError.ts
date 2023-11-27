@@ -1,11 +1,11 @@
-class CustonError extends Error {
+class CustomError extends Error {
   constructor(
     message: string,
     public readonly statusCode: number,
-    public readonly privateMessage: string,
+    public readonly privateMessage?: string,
   ) {
     super(message);
   }
 }
 
-export default CustonError;
+export default CustomError;
