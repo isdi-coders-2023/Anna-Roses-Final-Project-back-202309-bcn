@@ -1,5 +1,15 @@
 import { type Response, type NextFunction, type Request } from "express";
-import type CustomError from "../../CustomError/CustomError.js";
+import chalk from "chalk";
+import debugCreator from "debug";
+import CustomError from "../../CustomError/CustomError.js";
+
+export const notFound = (_req: Request, _res: Response, next: NextFunction) => {
+  const debug = debugCreator("neighbours:server:errors:generalError");
+  debug(chalk.red("Endpoint not found"));
+
+  const customError = new CustomError("Endpoint not found", 404);
+  next(customError);
+};
 
 export const generalError = (
   error: CustomError,
