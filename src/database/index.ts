@@ -1,11 +1,14 @@
+import chalk from "chalk";
 import mongoose from "mongoose";
 
-export const connectToDatabase = async (mongoUrl: string) => {
+const connectToDatabase = async (mongoUrl: string) => {
   try {
     await mongoose.connect(mongoUrl);
     mongoose.set("debug", true);
-    // Mensaje para cuando se ha conectado 🐼
-  } catch (error) {
-    // Mensaje para cuando no se ha conectado 🐇
+    chalk.bgGreen("Server listening on http://localhost");
+  } catch {
+    chalk.bgRed("Error connecting to database");
   }
 };
+
+export default connectToDatabase;
