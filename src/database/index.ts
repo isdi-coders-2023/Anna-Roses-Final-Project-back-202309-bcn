@@ -1,13 +1,16 @@
 import chalk from "chalk";
+import debugCreator from "debug";
 import mongoose from "mongoose";
+
+const debug = debugCreator("neighbours:database:main");
 
 const connectToDatabase = async (mongoUrl: string) => {
   try {
     await mongoose.connect(mongoUrl);
     mongoose.set("debug", true);
-    chalk.bgGreen("Server listening on http://localhost");
+    debug(chalk.green("Server listening on http://localhost"));
   } catch {
-    chalk.bgRed("Error connecting to database");
+    debug(chalk.bgRed("Error connecting to database"));
   }
 };
 
