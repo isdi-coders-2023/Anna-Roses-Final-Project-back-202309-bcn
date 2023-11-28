@@ -44,11 +44,11 @@ const neighbourSchema = new Schema<NeighbourStructure>({
   },
   isRented: {
     type: Boolean,
-    required: true,
+    required: false,
   },
   numberOfResidents: {
     type: Number,
-    required: true,
+    required: false,
   },
   yearOfPurchase: {
     type: Number,
