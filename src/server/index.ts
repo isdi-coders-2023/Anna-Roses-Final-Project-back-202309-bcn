@@ -3,8 +3,8 @@ import express from "express";
 import cors from "cors";
 import app from "./app.js";
 import { generalError, notFound } from "./middlewares/errors/generalError.js";
-import pingRouter from "../features/ping/Router/PingRouter.js";
-import neighbourRouter from "../features/neighbour/Router/neighbourRouter.js";
+import pingRouter from "../features/ping/router/PingRouter.js";
+import neighbourRouter from "../features/neighbour/router/neighbourRouter.js";
 
 const corsPort = process.env.ALLOWED_ORIGIN;
 const corsOptions = { origin: corsPort };

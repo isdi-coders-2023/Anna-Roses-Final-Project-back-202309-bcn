@@ -6,10 +6,7 @@ class NeighbourController {
     private readonly neighbourRepository: NeighbourMongooseRepository,
   ) {}
 
-  public getNeighbours = async (
-    _req: Request,
-    res: Response,
-  ): Promise<void> => {
+  public getNeighbours = async (_req: Request, res: Response) => {
     const neighbours = await this.neighbourRepository.getNeighbours();
     res.status(200).json({ neighbours });
   };

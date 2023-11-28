@@ -1,6 +1,6 @@
 import { Router } from "express";
-import NeighbourController from "../controller/NeighbourController.js";
 import NeighbourMongooseRepository from "../repository/NeighbourMongooseRepository.js";
+import NeighbourController from "../controller/NeighbourController.js";
 
 const neighbourRouter = Router();
 

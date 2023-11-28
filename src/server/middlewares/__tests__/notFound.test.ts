@@ -3,7 +3,7 @@ import { type NextFunction, type Request, type Response } from "express";
 import type CustomError from "../../CustomError/CustomError";
 import { notFound } from "../errors/generalError";
 import app from "../../app";
-import "../../../setupTest";
+import "../../../server/index";
 
 describe("Given a Middleware notFound method", () => {
   describe("When it receives a response", () => {
