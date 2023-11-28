@@ -1,4 +1,4 @@
-import Neighbour from "../model/Neighbour";
+import Neighbour from "../model/Neighbour.js";
 import { type NeighbourStructure } from "../types";
 import { type NeighbourRepository } from "./types";
 
