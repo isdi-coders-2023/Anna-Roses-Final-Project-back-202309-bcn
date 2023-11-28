@@ -6,7 +6,7 @@ import express from "express";
 const debug = debugCreator("neighbours:server:app");
 
 const app = express();
-app.disabled("x-powered-by");
+app.disable("x-powered-by");
 
 export const startServer = (port: number) => {
   app.listen(port, () => {
