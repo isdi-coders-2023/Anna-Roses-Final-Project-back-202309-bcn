@@ -1,4 +1,4 @@
-import { type Response, type Request } from "express";
+import { type Response, type Request, type NextFunction } from "express";
 import CustomError from "../../CustomError/CustomError";
 import { generalError } from "../errors/generalError";
 
@@ -15,19 +15,24 @@ describe("Given a generalError middleware", () => {
   };
   const next = jest.fn();
 
-  describe("When it receives a response method status with a 400", () => {
-    test("Then it should call the response method status with 400", () => {
+  describe("When it receives a request method status with a 400", () => {
+    test("Then it should call the response status with 400", () => {
       const expectedStatusCode = 400;
       const customError = new CustomError(errorMessage, expectedStatusCode);
 
-      generalError(customError, req as Request, res as Response, next);
+      generalError(
+        customError,
+        req as Request,
+        res as Response,
+        next as NextFunction,
+      );
 
       expect(res.status).toHaveBeenCalledWith(expectedStatusCode);
     });
   });
 
-  describe("When it receives a response and an error with status code 500", () => {
-    test("Then it should call the response method status with 500", () => {
+  describe("When it receives a request and an error with a status code 500", () => {
+    test("Then it should call the response status method with 500", () => {
       const expectedStatusCode = 500;
       const error = new Error("Error with status code");
 
@@ -37,10 +42,28 @@ describe("Given a generalError middleware", () => {
     });
   });
 
-  describe("When it receives a response with an error with a message 'Private error'", () => {
-    test("Then it should call the response method json with a 'Private error' message", () => {
+  describe("When it receives a request with an error with the message 'Private error'", () => {
+    test("Then it should call the response json method with a 'Private error' message", () => {
       const expectedStatusCode = 400;
       const privateErrorMessage = "Private error";
+      const error = new CustomError(privateErrorMessage, expectedStatusCode);
+
+      generalError(error, req as Request, res as Response, next);
+
+      const errorResponseBody = {
+        message: privateErrorMessage,
+      };
+
+      expect(res.json).toHaveBeenCalledWith(
+        expect.objectContaining(errorResponseBody),
+      );
+    });
+  });
+
+  describe("When it receives a request with an error without a message", () => {
+    test("Then it should call the response json method with a 'Internal server error' message", () => {
+      const expectedStatusCode = 400;
+      const privateErrorMessage = "";
       const error = new CustomError(privateErrorMessage, expectedStatusCode);
 
       generalError(error, req as Request, res as Response, next);

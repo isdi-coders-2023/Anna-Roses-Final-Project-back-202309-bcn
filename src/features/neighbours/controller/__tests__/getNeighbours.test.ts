@@ -1,17 +1,17 @@
 import { type Request, type Response } from "express";
 import mockNeighbours from "../../mocks/mockNeighbours";
-import { type NeighbourRepository } from "../../repository/types";
+import { type NeighboursRepository } from "../../repository/types";
 import { type NeighbourStructure } from "../../types";
-import NeighbourController from "../NeighbourController";
+import NeighboursController from "../NeighboursController";
 
 describe("Gien a NeighbourController getNeighbours method", () => {
   describe("When it receives a response", () => {
     const neighbours: NeighbourStructure[] = mockNeighbours;
-    const neighbourRepository: NeighbourRepository = {
+    const neighbourRepository: NeighboursRepository = {
       getNeighbours: jest.fn().mockResolvedValue(neighbours),
     };
 
-    const neighbourController = new NeighbourController(neighbourRepository);
+    const neighbourController = new NeighboursController(neighbourRepository);
 
     const req = {};
     const res: Pick<Response, "status" | "json"> = {
