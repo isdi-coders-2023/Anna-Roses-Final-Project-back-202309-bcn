@@ -26,7 +26,7 @@ describe("Given a generalError middleware", () => {
     });
   });
 
-  describe("When it receives a response and an error with status code", () => {
+  describe("When it receives a response and an error with status code 400", () => {
     test("Then it should call the response method status with 500", () => {
       const expectedStatusCode = 500;
       const error = new Error("Error with status code");
@@ -37,7 +37,7 @@ describe("Given a generalError middleware", () => {
     });
   });
 
-  describe("When it receives a response with an error with a message 'Error'", () => {
+  describe("When it receives a response with an error with a message 'Private error'", () => {
     test("Then it should call the response method json with a 'Private error' message", () => {
       const expectedStatusCode = 400;
       const privateErrorMessage = "Private error";

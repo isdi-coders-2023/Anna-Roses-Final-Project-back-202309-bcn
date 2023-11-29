@@ -18,5 +18,6 @@ export const generalError = (
   _next: NextFunction,
 ) => {
   const statusCode = error.statusCode ?? 500;
-  res.status(statusCode).json({ message: error.message });
+  const errorMessage = error.message ?? "Server error";
+  res.status(statusCode).json({ message: errorMessage });
 };

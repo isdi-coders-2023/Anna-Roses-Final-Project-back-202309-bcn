@@ -7,7 +7,7 @@ import "../../../server/index";
 
 describe("Given a Middleware notFound method", () => {
   describe("When it receives a response", () => {
-    test("Then it should call the next function with a 404 status and a 'Endpoint not found error'", () => {
+    test("Then it should call the next function with a 404 status and an 'Endpoint not found' error message'", () => {
       const req = {};
       const res = {};
       const next = jest.fn();
