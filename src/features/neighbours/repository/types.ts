@@ -1,5 +1,5 @@
 import { type NeighbourStructure } from "../types";
 
-export interface NeighbourRepository {
+export interface NeighboursRepository {
   getNeighbours: () => Promise<NeighbourStructure[]>;
 }
