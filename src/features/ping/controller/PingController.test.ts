@@ -23,7 +23,7 @@ describe("Given a PingController getPong method", () => {
       expect(mockResponse.status).toHaveBeenCalledWith(expectedStatusCode);
     });
 
-    test("Then it should call its method json with the message 'message: '🏓''", () => {
+    test("Then it should call its method json with the message '🏓'", () => {
       const expectedMessage = { message: "🏓" };
 
       pingController.getPong(req as Request, mockResponse as Response);
