@@ -7,7 +7,7 @@ import connectToDatabase from "./database/index.js";
 
 const debug = debugCreator("neighbours:main");
 
-const port = process.env.PORT ?? 400;
+const port = process.env.PORT ?? 4000;
 
 if (!process.env.MONGODB_URL) {
   debug(chalk.blue("Missing MongoDB Connection String"));
