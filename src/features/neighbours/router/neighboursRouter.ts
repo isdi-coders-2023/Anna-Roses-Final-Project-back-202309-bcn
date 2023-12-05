@@ -11,4 +11,6 @@ const neighboursController = new NeighboursController(
 
 neighboursRouter.get("/", neighboursController.getNeighbours);
 
+neighboursRouter.delete("/:neighbourId", neighboursController.deleteNeighbours);
+
 export default neighboursRouter;
