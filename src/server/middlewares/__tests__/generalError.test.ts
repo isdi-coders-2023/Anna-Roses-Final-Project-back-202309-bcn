@@ -45,13 +45,13 @@ describe("Given a generalError middleware", () => {
   describe("When it receives a request with an error with the message 'Private error'", () => {
     test("Then it should call the response json method with a 'Private error' message", () => {
       const expectedStatusCode = 400;
-      const privateErrorMessage = "Private error";
-      const error = new CustomError(privateErrorMessage, expectedStatusCode);
+      const customErrorMessage = "Private error";
+      const error = new CustomError(customErrorMessage, expectedStatusCode);
 
       generalError(error, req as Request, res as Response, next);
 
       const errorResponseBody = {
-        message: privateErrorMessage,
+        message: customErrorMessage,
       };
 
       expect(res.json).toHaveBeenCalledWith(
@@ -63,13 +63,13 @@ describe("Given a generalError middleware", () => {
   describe("When it receives a request with an error without a message", () => {
     test("Then it should call the response json method with a 'Internal server error' message", () => {
       const expectedStatusCode = 400;
-      const privateErrorMessage = "";
-      const error = new CustomError(privateErrorMessage, expectedStatusCode);
+      const customErrorMessage = "";
+      const error = new CustomError(customErrorMessage, expectedStatusCode);
 
       generalError(error, req as Request, res as Response, next);
 
       const errorResponseBody = {
-        message: privateErrorMessage,
+        message: customErrorMessage,
       };
 
       expect(res.json).toHaveBeenCalledWith(

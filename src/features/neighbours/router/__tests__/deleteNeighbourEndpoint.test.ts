@@ -3,7 +3,7 @@ import mockNeighbours from "../../mocks/mockNeighbours";
 import Neighbour from "../../model/Neighbour";
 import app from "../../../../server/app";
 
-describe("Given a delete/neighbour endpoint", () => {
+describe("Given a DELETE/neighbour endpoint with a NeighbourController delete method", () => {
   const mockData = mockNeighbours;
 
   describe("When it receives a valid request", () => {

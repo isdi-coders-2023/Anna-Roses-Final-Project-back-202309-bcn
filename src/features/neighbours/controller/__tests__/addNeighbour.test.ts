@@ -10,7 +10,7 @@ afterEach(() => {
 });
 
 describe("Given a NeighbourController addNeighbour method", () => {
-  describe("When it receives a request with a neighbour without id", () => {
+  describe("When it receives a request with a neighbour without id in the body", () => {
     const neighbourMock = mockNeighbour;
     const req: Pick<NeighbourRequestWithoutId, "body"> = {
       body: neighbourMock,
@@ -28,7 +28,7 @@ describe("Given a NeighbourController addNeighbour method", () => {
         .mockResolvedValue({ neighbourMocks: neighbourMock }),
     };
 
-    test("Then it should call its status method with the status code 201", async () => {
+    test("Then it should call its status method with the code 201", async () => {
       const expectedStatusCode = 201;
       const neighboursController = new NeighboursController(
         neighbourRepository,
@@ -43,7 +43,7 @@ describe("Given a NeighbourController addNeighbour method", () => {
       expect(res.status).toHaveBeenCalledWith(expectedStatusCode);
     });
 
-    test("Then it should call its json method with the 'Marta Ibarra Chef'", async () => {
+    test("Then it should call its json method with 'Marta Ibarra Chef' object", async () => {
       const neighbourController = new NeighboursController(neighbourRepository);
 
       await neighbourController.addNeighbour(
@@ -57,7 +57,7 @@ describe("Given a NeighbourController addNeighbour method", () => {
       });
     });
 
-    test("Then, if it is an invalid request, it should call the next function with its error status 400 and the message 'Error adding the new Neighbour'", async () => {
+    test("Then, if the request throws an error, it should call the next function with its error status 400 and the message 'Error adding the new Neighbour'", async () => {
       const neighbourRepository: NeighboursMongooseRepository = {
         getNeighbours: jest.fn(),
         deleteNeighbour: jest.fn(),
