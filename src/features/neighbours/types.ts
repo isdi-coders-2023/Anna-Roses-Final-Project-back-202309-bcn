@@ -21,6 +21,11 @@ export interface NeighbourStructure {
 
 export type NeighbourStructureWithoutId = Omit<NeighbourStructure, "_id">;
 
+export type NeighbourStructureWithoutName = Omit<
+  NeighbourStructure,
+  "_id" | "name"
+>;
+
 export type NeighbourRequestWithoutId = Request<
   Record<string, unknown>,
   Record<string, unknown>,
