@@ -16,7 +16,7 @@ const neighbourSchema = {
     isRented: Joi.boolean().required(),
     numberOfResidents: Joi.number().required(),
     yearOfPurchase: Joi.number().required(),
-    coments: Joi.string().required(),
+    coments: Joi.string().optional(),
     image: Joi.string().required(),
   }),
 };
