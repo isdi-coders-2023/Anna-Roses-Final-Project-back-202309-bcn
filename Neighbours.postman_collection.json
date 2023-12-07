@@ -44,6 +44,14 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "add",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
     }
   ]
 }
