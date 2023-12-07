@@ -1,3 +1,5 @@
+import { type Request } from "express";
+
 export interface NeighbourStructure {
   _id: string;
   name: string;
@@ -16,3 +18,11 @@ export interface NeighbourStructure {
   coments: string;
   image: string;
 }
+
+export type NeighbourStructureWithoutId = Omit<NeighbourStructure, "_id">;
+
+export type NeighbourRequestWithoutId = Request<
+  Record<string, unknown>,
+  Record<string, unknown>,
+  NeighbourStructureWithoutId
+>;

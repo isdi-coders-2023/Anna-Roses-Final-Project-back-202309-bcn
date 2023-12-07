@@ -1,5 +1,8 @@
 import Neighbour from "../model/Neighbour.js";
-import { type NeighbourStructure } from "../types.js";
+import {
+  type NeighbourStructureWithoutId,
+  type NeighbourStructure,
+} from "../types.js";
 import { type NeighboursRepository } from "./types.js";
 
 class NeighboursMongooseRepository implements NeighboursRepository {
@@ -16,6 +19,18 @@ class NeighboursMongooseRepository implements NeighboursRepository {
       throw new Error(
         "Error deleting this Neighbour" + (error as Error).message,
       );
+    }
+  }
+
+  public async addNeighbour(
+    neighbour: NeighbourStructureWithoutId,
+  ): Promise<NeighbourStructure> {
+    try {
+      const newNeighbour = await Neighbour.create(neighbour);
+
+      return newNeighbour;
+    } catch (error) {
+      throw new Error("Error adding a newNeighbour" + (error as Error).message);
     }
   }
 }

@@ -13,7 +13,7 @@ describe("Given a NeighboursController deleteNeighbour method", () => {
     };
     const res: Pick<Response, "status" | "json"> = {
       status: jest.fn().mockReturnThis(),
-      json: jest.fn().mockResolvedValue({}),
+      json: jest.fn(),
     };
     const next: NextFunction = jest.fn();
     const neighboursController = new NeighboursController(
