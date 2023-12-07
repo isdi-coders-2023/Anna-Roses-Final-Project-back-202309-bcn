@@ -1,6 +1,7 @@
 import { Router } from "express";
 import NeighboursMongooseRepository from "../repository/NeighboursMongooseRepository.js";
 import NeighboursController from "../controller/NeighboursController.js";
+import neighbourValidation from "../schema/neighbourSchema.js";
 
 const neighboursRouter = Router();
 
@@ -12,5 +13,11 @@ const neighboursController = new NeighboursController(
 neighboursRouter.get("/", neighboursController.getNeighbours);
 
 neighboursRouter.delete("/:neighbourId", neighboursController.deleteNeighbours);
+
+neighboursRouter.post(
+  "/create",
+  neighbourValidation,
+  neighboursController.addNeighbour,
+);
 
 export default neighboursRouter;
