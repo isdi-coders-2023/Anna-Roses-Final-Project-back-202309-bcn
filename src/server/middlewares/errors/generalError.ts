@@ -20,7 +20,7 @@ export const generalError = (
 ) => {
   if (error instanceof ValidationError && error.details.body) {
     const validationError = error.details.body.reduce(
-      (errorMessage, joiError) => `${errorMessage}, ${joiError.message}`,
+      (errorMessage, joiError) => `${errorMessage} ${joiError.message}`,
       "",
     );
 
