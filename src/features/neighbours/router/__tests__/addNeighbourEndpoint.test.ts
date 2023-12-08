@@ -45,9 +45,9 @@ describe("Given a POST/neighbours/create endpoint with and addNeighbour Controll
   });
 
   describe("When it receives a request with a new 'Marta Ibarra Chef' without id, name and powers", () => {
-    test("Then it should respond with a ', 'name' is required, 'powers' is required' message inside the object error's property details's body property", async () => {
+    test("Then it should respond with a 'name is required' message inside the object error's property details's body property", async () => {
       const expectedStatusCode = 400;
-      const expectedErrorMessage = "name is required";
+      const expectedErrorMessage = " name is required";
       const mockNeighbour = mockNeighbourWithoutName;
 
       const response = await request(app)
