@@ -22,11 +22,11 @@ const neighbourSchema = new Schema<NeighbourStructure>({
     type: Number,
     required: true,
   },
-  ownerFirst: {
+  firstOwner: {
     type: String,
     required: true,
   },
-  ownerSecond: {
+  secondOwner: {
     type: String,
     required: false,
   },
@@ -38,12 +38,12 @@ const neighbourSchema = new Schema<NeighbourStructure>({
     type: String,
     required: true,
   },
-  isFirstResidence: {
-    type: Boolean,
+  firstResidence: {
+    type: String,
     required: true,
   },
-  isRented: {
-    type: Boolean,
+  rented: {
+    type: String,
     required: false,
   },
   numberOfResidents: {
@@ -51,7 +51,7 @@ const neighbourSchema = new Schema<NeighbourStructure>({
     required: false,
   },
   yearOfPurchase: {
-    type: Number,
+    type: String,
     required: true,
   },
   coments: {
