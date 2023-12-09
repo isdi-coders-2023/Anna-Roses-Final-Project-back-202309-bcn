@@ -54,6 +54,25 @@ class NeighboursController {
       next(customError);
     }
   };
+
+  public getNeighbourById = async (
+    req: Request<{ neighbourId: string }>,
+    res: Response,
+    next: NextFunction,
+  ): Promise<void> => {
+    try {
+      const { neighbourId } = req.params;
+
+      const neighbour =
+        await this.neighboursRepository.getNeighbourById(neighbourId);
+
+      res.status(200).json(neighbour);
+    } catch {
+      const customError = new CustomError("Error finding this neighbour", 400);
+
+      next(customError);
+    }
+  };
 }
 
 export default NeighboursController;
