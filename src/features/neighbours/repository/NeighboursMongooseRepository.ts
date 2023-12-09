@@ -33,6 +33,16 @@ class NeighboursMongooseRepository implements NeighboursRepository {
       throw new Error("Error adding a newNeighbour" + (error as Error).message);
     }
   }
+
+  public async getNeighbourById(id: string): Promise<NeighbourStructure> {
+    try {
+      const neighbour = await Neighbour.findById(id);
+
+      return neighbour!;
+    } catch (error) {
+      throw new Error("Error finding the Neighbour" + (error as Error).message);
+    }
+  }
 }
 
 export default NeighboursMongooseRepository;

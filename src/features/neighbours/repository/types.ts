@@ -9,4 +9,5 @@ export interface NeighboursRepository {
   addNeighbour: (
     neighbour: NeighbourStructureWithoutId,
   ) => Promise<NeighbourStructure>;
+  getNeighbourById: (neighbourId: string) => Promise<NeighbourStructure>;
 }
