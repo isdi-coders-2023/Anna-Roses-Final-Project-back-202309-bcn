@@ -11,13 +11,12 @@ const neighboursController = new NeighboursController(
 );
 
 neighboursRouter.get("/", neighboursController.getNeighbours);
-
 neighboursRouter.delete("/:neighbourId", neighboursController.deleteNeighbours);
-
 neighboursRouter.post(
   "/create",
   neighbourValidation,
   neighboursController.addNeighbour,
 );
+neighboursRouter.get("/:neighbourId", neighboursController.getNeighbourById);
 
 export default neighboursRouter;
