@@ -48,6 +48,30 @@
     {
       "name": "add",
       "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "  {\n    \"floor\": \"0\",\n    \"door\": \"1\",\n    \"coefficient\": 9,\n    \"moneyInFavour\": 246,\n    \"ownerFirst\": \"Marta Ibarra Chef\",\n    \"ownerSecond\": \"Mela Maluenda\",\n    \"activityKind\": \"Restaurante\",\n    \"isFirstResidence\": false,\n    \"isRented\": false,\n    \"numberOfResidents\": 1,\n    \"yearOfPurchase\": 2018,\n    \"coments\": \"Tienen 2 estrellas Michelin\",\n    \"image\": \"https://i.ibb.co/N7k0Q4y/minion-chef.webp\"\n  }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:1714/neighbours/create",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "1714",
+          "path": ["neighbours", "create"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get-by-id",
+      "request": {
         "method": "GET",
         "header": []
       },
