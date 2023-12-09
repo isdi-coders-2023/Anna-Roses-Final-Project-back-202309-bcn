@@ -31,3 +31,5 @@ export type NeighbourRequestWithoutId = Request<
   Record<string, unknown>,
   NeighbourStructureWithoutId
 >;
+
+export type NeighbourRequestById = Request<{ neighbourId: string }>;

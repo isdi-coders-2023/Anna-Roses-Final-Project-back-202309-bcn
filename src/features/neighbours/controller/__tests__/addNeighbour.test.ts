@@ -26,6 +26,7 @@ describe("Given a NeighbourController addNeighbour method", () => {
       addNeighbour: jest
         .fn()
         .mockResolvedValue({ neighbourMocks: neighbourMock }),
+      getNeighbourById: jest.fn(),
     };
 
     test("Then it should call its status method with the code 201", async () => {
@@ -62,6 +63,7 @@ describe("Given a NeighbourController addNeighbour method", () => {
         getNeighbours: jest.fn(),
         deleteNeighbour: jest.fn(),
         addNeighbour: jest.fn().mockRejectedValueOnce(undefined),
+        getNeighbourById: jest.fn(),
       };
 
       const expectedError: Partial<CustomError> = {
