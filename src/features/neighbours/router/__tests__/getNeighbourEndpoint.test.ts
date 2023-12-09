@@ -10,17 +10,20 @@ describe("Given a GET method with a '/neighbours' endpoint", () => {
     test("Then it should respond with a status 200 and a list of 'Marta Ibarra Chef' and 'Laura Fernandez Empoderada'", async () => {
       const expectedStatusCode = 200;
       const path = "/neighbours";
-      await Neighbour.create(mockNeighbours[0], mockNeighbours[1]);
+      const mockData = mockNeighbours;
+      await Neighbour.create(mockData[0], mockData[1]);
 
       const response = await request(app).get(path).expect(expectedStatusCode);
       const responseBody = response.body as {
         neighbours: NeighbourStructure[];
       };
 
+      const invertNeighboursMock = mockData.reverse();
+
       responseBody.neighbours.forEach((neighbour, neighbourPosition) => {
         expect(neighbour).toHaveProperty(
           "name",
-          mockNeighbours[neighbourPosition].name,
+          invertNeighboursMock[neighbourPosition].name,
         );
       });
     });
