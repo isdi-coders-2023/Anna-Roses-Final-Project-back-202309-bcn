@@ -7,7 +7,7 @@ import { type NeighboursRepository } from "./types.js";
 
 class NeighboursMongooseRepository implements NeighboursRepository {
   public async getNeighbours(): Promise<NeighbourStructure[]> {
-    const neighbours = await Neighbour.find().limit(10);
+    const neighbours = await Neighbour.find().limit(10).sort({ _id: -1 });
 
     return neighbours;
   }
