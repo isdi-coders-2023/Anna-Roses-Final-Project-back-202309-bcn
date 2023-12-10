@@ -52,7 +52,7 @@ describe("Given a NeighboursController getNeighbourById method", () => {
         next,
       );
 
-      expect(res.json).toHaveBeenCalledWith(neighbourMock);
+      expect(res.json).toHaveBeenCalledWith({ neighbourMock });
     });
   });
 
