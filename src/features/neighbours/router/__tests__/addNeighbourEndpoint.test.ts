@@ -1,9 +1,9 @@
 import request from "supertest";
 import app from "../../../../server/app";
-import { mockNeighbour } from "../../mocks/mockNeighbour";
 import { type NeighbourStructure } from "../../types";
 import { server } from "../../../../setupTests";
 import { mockNeighbourWithoutName } from "../../mocks/mockNeighbourWithoutName";
+import { mockNeighbour } from "../../mocks/mockNeighbours";
 
 describe("Given a POST/neighbours/create endpoint with and addNeighbour Controller's method", () => {
   const path = "/neighbours/create";

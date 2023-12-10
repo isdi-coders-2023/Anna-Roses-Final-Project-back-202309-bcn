@@ -1,8 +1,8 @@
 import request from "supertest";
-import mockNeighbours from "../../mocks/mockNeighbours";
 import Neighbour from "../../model/Neighbour";
 import { type NeighbourStructure } from "../../types";
 import app from "../../../../server/app";
+import { mockNeighbours } from "../../mocks/mockNeighbours";
 
 beforeEach(() => {
   jest.clearAllMocks();

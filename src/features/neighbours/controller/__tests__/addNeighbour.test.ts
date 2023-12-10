@@ -1,9 +1,9 @@
 import { type Response, type NextFunction } from "express";
-import { mockNeighbour } from "../../mocks/mockNeighbour";
 import { type NeighbourRequestWithoutId } from "../../types";
 import type NeighboursMongooseRepository from "../../repository/NeighboursMongooseRepository";
 import NeighboursController from "../NeighboursController";
 import type CustomError from "../../../../server/CustomError/CustomError";
+import { mockNeighbour } from "../../mocks/mockNeighbours";
 
 afterEach(() => {
   jest.clearAllMocks();
