@@ -1,6 +1,9 @@
 import { type NextFunction, type Request, type Response } from "express";
 import { type NeighboursRepository } from "../repository/types.js";
-import { type NeighbourRequestWithoutId } from "../types.js";
+import {
+  type NeighbourRequestWithId,
+  type NeighbourRequestWithoutId,
+} from "../types.js";
 import CustomError from "../../../server/CustomError/CustomError.js";
 
 class NeighboursController {
@@ -69,6 +72,28 @@ class NeighboursController {
       res.status(200).json({ neighbour });
     } catch {
       const customError = new CustomError("Error finding this neighbour", 400);
+
+      next(customError);
+    }
+  };
+
+  public modifyNeighbour = async (
+    req: NeighbourRequestWithId,
+    res: Response,
+    next: NextFunction,
+  ): Promise<void> => {
+    try {
+      const neighbour = req.body;
+      const { neighbourId } = req.params;
+
+      const modifyNeighbour = await this.neighboursRepository.modifyNeighbour(
+        neighbourId,
+        neighbour,
+      );
+
+      res.status(200).json({ neighbour: modifyNeighbour });
+    } catch {
+      const customError = new CustomError("Error modifying the neighbour", 400);
 
       next(customError);
     }
