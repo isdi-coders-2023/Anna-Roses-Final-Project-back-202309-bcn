@@ -4,6 +4,10 @@ import Neighbour from "../../model/Neighbour";
 import { type NeighbourStructure } from "../../types";
 import app from "../../../../server/app";
 
+beforeEach(() => {
+  jest.clearAllMocks();
+});
+
 describe("Given a GET method with a /neighbours/:neighbourId endpoint", () => {
   describe("When it receives a request with 'Marta Ibarra Chef' id", () => {
     test("Then it should respond with it the status code 200 and 'Marta Ibarra Chef' id", async () => {
@@ -20,7 +24,10 @@ describe("Given a GET method with a /neighbours/:neighbourId endpoint", () => {
         neighbour: NeighbourStructure;
       };
 
-      expect(responseBody).toHaveProperty("name", expectedNeighboursName);
+      expect(responseBody.neighbour).toHaveProperty(
+        "name",
+        expectedNeighboursName,
+      );
     });
   });
 

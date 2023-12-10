@@ -46,13 +46,14 @@ describe("Given a NeighboursController getNeighbourById method", () => {
     });
 
     test("Then it should call its json method with 'Marta Ibarra Chef'", async () => {
+      const neighbour = neighbourMock;
       await neighboursController.getNeighbourById(
         req as NeighbourRequestById,
         res as Response,
         next,
       );
 
-      expect(res.json).toHaveBeenCalledWith(neighbourMock);
+      expect(res.json).toHaveBeenCalledWith({ neighbour });
     });
   });
 
