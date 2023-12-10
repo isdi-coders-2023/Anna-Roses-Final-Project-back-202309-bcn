@@ -10,4 +10,8 @@ export interface NeighboursRepository {
     neighbour: NeighbourStructureWithoutId,
   ) => Promise<NeighbourStructure>;
   getNeighbourById: (neighbourId: string) => Promise<NeighbourStructure>;
+  modifyNeighbour: (
+    id: string,
+    neighbour: NeighbourStructure,
+  ) => Promise<NeighbourStructure | undefined>;
 }
