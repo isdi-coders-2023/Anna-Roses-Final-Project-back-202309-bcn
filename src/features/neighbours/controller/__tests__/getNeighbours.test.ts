@@ -12,6 +12,7 @@ describe("Gien a NeighbourController getNeighbours method", () => {
       deleteNeighbour: jest.fn().mockResolvedValue(neighbours),
       addNeighbour: jest.fn().mockResolvedValue(neighbours),
       getNeighbourById: jest.fn(),
+      modifyNeighbour: jest.fn(),
     };
 
     const neighbourController = new NeighboursController(neighboursRepository);
