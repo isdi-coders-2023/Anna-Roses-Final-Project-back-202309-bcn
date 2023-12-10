@@ -66,7 +66,7 @@ class NeighboursController {
       const neighbour =
         await this.neighboursRepository.getNeighbourById(neighbourId);
 
-      res.status(200).json(neighbour);
+      res.status(200).json({ neighbour });
     } catch {
       const customError = new CustomError("Error finding this neighbour", 400);
 
