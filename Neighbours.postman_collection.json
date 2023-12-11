@@ -76,6 +76,30 @@
         "header": []
       },
       "response": []
+    },
+    {
+      "name": "patch",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\"_id\": \"6563639cc4ddfcae99eeb07a\",\n  \"name\": \"Marta Ibarra Chef\",\n  \"floor\": \"0\",\n  \"door\": \"1\",\n  \"coefficient\": 9,\n  \"moneyInFavour\": 246,\n  \"firstOwner\": \"Marta Ibarra Chef\",\n  \"secondOwner\": \"Mela Maluenda\",\n  \"powers\": \"Propietario\",\n  \"activityKind\": \"Restaurante\",\n  \"firstResidence\": \"No\",\n  \"rented\": \"No\",\n  \"numberOfResidents\": 2,\n  \"yearOfPurchase\": \"2018\",\n  \"coments\": \"adeu\",\n  \"image\": \"https://i.ibb.co/N7k0Q4y/minion-chef.webp\",\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:1714/neighbours/6573446fc2f35a7cf22155ee",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "1714",
+          "path": ["neighbours", "6573446fc2f35a7cf22155ee"]
+        }
+      },
+      "response": []
     }
   ]
 }
