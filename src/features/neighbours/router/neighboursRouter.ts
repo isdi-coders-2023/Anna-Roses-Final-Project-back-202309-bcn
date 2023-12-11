@@ -18,5 +18,6 @@ neighboursRouter.post(
   neighboursController.addNeighbour,
 );
 neighboursRouter.get("/:neighbourId", neighboursController.getNeighbourById);
+neighboursRouter.patch("/:neighbourId", neighboursController.modifyNeighbour);
 
 export default neighboursRouter;

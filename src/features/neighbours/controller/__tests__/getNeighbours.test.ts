@@ -1,8 +1,8 @@
 import { type Request, type Response } from "express";
-import mockNeighbours from "../../mocks/mockNeighbours";
 import { type NeighbourStructure } from "../../types";
 import NeighboursController from "../NeighboursController";
 import { type NeighboursRepository } from "../../repository/types";
+import { mockNeighbours } from "../../mocks/mockNeighbours";
 
 describe("Gien a NeighbourController getNeighbours method", () => {
   describe("When it receives a response", () => {
@@ -12,6 +12,7 @@ describe("Gien a NeighbourController getNeighbours method", () => {
       deleteNeighbour: jest.fn().mockResolvedValue(neighbours),
       addNeighbour: jest.fn().mockResolvedValue(neighbours),
       getNeighbourById: jest.fn(),
+      modifyNeighbour: jest.fn(),
     };
 
     const neighbourController = new NeighboursController(neighboursRepository);

@@ -1,9 +1,9 @@
 import { type Response, type NextFunction } from "express";
-import { mockNeighbour } from "../../mocks/mockNeighbour";
 import { type NeighbourRequestWithoutId } from "../../types";
 import type NeighboursMongooseRepository from "../../repository/NeighboursMongooseRepository";
 import NeighboursController from "../NeighboursController";
 import type CustomError from "../../../../server/CustomError/CustomError";
+import { mockNeighbour } from "../../mocks/mockNeighbours";
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -27,6 +27,7 @@ describe("Given a NeighbourController addNeighbour method", () => {
         .fn()
         .mockResolvedValue({ neighbourMocks: neighbourMock }),
       getNeighbourById: jest.fn(),
+      modifyNeighbour: jest.fn(),
     };
 
     test("Then it should call its status method with the code 201", async () => {
@@ -64,6 +65,7 @@ describe("Given a NeighbourController addNeighbour method", () => {
         deleteNeighbour: jest.fn(),
         addNeighbour: jest.fn().mockRejectedValueOnce(undefined),
         getNeighbourById: jest.fn(),
+        modifyNeighbour: jest.fn(),
       };
 
       const expectedError: Partial<CustomError> = {

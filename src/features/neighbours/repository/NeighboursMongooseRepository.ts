@@ -43,6 +43,23 @@ class NeighboursMongooseRepository implements NeighboursRepository {
       throw new Error("Error finding the Neighbour" + (error as Error).message);
     }
   }
+
+  public async modifyNeighbour(
+    id: string,
+    neighbour: NeighbourStructure,
+  ): Promise<NeighbourStructure | undefined> {
+    try {
+      const modifiedNeighbour = await Neighbour.findByIdAndUpdate(
+        id,
+        { ...neighbour },
+        { returnDocument: "after" },
+      );
+
+      return modifiedNeighbour!;
+    } catch (error) {
+      throw new Error("Error modifying Neighbour" + (error as Error).message);
+    }
+  }
 }
 
 export default NeighboursMongooseRepository;

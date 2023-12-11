@@ -32,4 +32,10 @@ export type NeighbourRequestWithoutId = Request<
   NeighbourStructureWithoutId
 >;
 
+export type NeighbourRequestWithId = Request<
+  { neighbourId: string },
+  Record<string, unknown>,
+  NeighbourStructure
+>;
+
 export type NeighbourRequestById = Request<{ neighbourId: string }>;

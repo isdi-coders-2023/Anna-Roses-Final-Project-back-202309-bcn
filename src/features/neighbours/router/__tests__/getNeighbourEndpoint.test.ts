@@ -1,9 +1,9 @@
 import request from "supertest";
-import mockNeighbours from "../../mocks/mockNeighbours";
 import Neighbour from "../../model/Neighbour";
 import app from "../../../../server/app";
 import { type NeighbourStructure } from "../../types";
 import "../../../../server/index";
+import { mockNeighbours } from "../../mocks/mockNeighbours";
 
 describe("Given a GET method with a '/neighbours' endpoint", () => {
   describe("When it receives a request", () => {
