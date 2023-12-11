@@ -64,7 +64,8 @@ export const mockNeighbour: NeighbourStructureWithoutId = {
   image: "https://i.ibb.co/N7k0Q4y/minion-chef.webp",
 };
 
-export const mockModifiedNeighbour: NeighbourStructureWithoutId = {
+export const mockModifiedNeighbour: NeighbourStructure = {
+  _id: "6563639cc4ddfcae99eeb07a",
   name: "Marta Ibarra Chef",
   floor: "0",
   door: "1",
@@ -78,6 +79,6 @@ export const mockModifiedNeighbour: NeighbourStructureWithoutId = {
   rented: "No",
   numberOfResidents: 2,
   yearOfPurchase: "2018",
-  coments: "adeu",
+  coments: "cosetes",
   image: "https://i.ibb.co/N7k0Q4y/minion-chef.webp",
 };
